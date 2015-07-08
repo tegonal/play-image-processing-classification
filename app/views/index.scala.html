@@ -1,0 +1,15 @@
+@(message: String)
+
+@main(message) {
+    <h1>@message</h1>
+    <p>This form let's you upload an image directly and receive its feature vector with the resulting classification. A typical client application would first call /identifications using POST receiving a result containing the upload url which can then be used to transfer the image data in a seperate POST request.</p>
+
+    @helper.form(action = routes.IdentificationController.uploadImageDirectly(), 'enctype -> "multipart/form-data") {
+      <input type="file" name="image">
+      
+      <p>
+        <input type="submit">
+      </p>
+    }
+
+}
